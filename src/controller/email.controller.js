@@ -4,9 +4,6 @@ import { user, password } from "../environments/environments.js";
 var user_ = user
 var password_ = password
 
-// var user = 'daniel20025febrero29@gmail.com';
-// var password = 'uxaqubigxefknnal';
-
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,

@@ -20,8 +20,8 @@ async function main(name, email, message) {
         from: `"Contacto portafolio 👉👀" <${email}>`,
         to: "daniel20025febrero29@gmail.com",
         subject: "Mi Portafolio ✔",
-        text: `Nombre: ${name} \n Correo: ${email} \n Mensaje: ${message}`,
-        //html: "<b>Hello world?</b>",
+        html: `"<h1>Hola</h1><br/><h1><strong>Nombre: </strong>${name}</h1><br/><h1><strong>Correo: </strong>${email}</h1><br/><h1><strong>nMensaje: </strong>${message}</h1>"`,
+        //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
     });
     return `Message sent: %s" ${info.messageId}`;
 }

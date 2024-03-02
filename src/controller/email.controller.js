@@ -14,30 +14,36 @@ const transporter = nodemailer.createTransport({
     }
 });;
 
-async function main (name, email, message) {
+async function main(firstname, secondname, email, message) {
     // send mail with defined transport object
     const my = await transporter.sendMail({
-        from: `"Contacto portafolio 👉👀" <${email}>`,
+        from: `Desde 👉 ${email} <${email}`,
         to: "daniel20025febrero29@gmail.com",
-        subject: "Mi Portafolio ✔",
-        html: `"<h1>Hola</h1><br/><h1><strong>Nombre: </strong>${name}</h1><br/><h1><strong>Correo: </strong>${email}</h1><br/><h1><strong>nMensaje: </strong>${message}</h1>"`,
+        subject: "Mi Portafolio ✅",
+        html: `<h3>Interesado desde el portafolio</h3>
+                <span><strong>Nombre: </strong>${firstname} ${secondname}</span>
+                <br/>
+                <span><strong>Correo: </strong>${email}</span>
+                <br/>
+                <span><strong>Mensaje: </strong> ${message}</span>`,
         //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
     });
 
-    // await transporter.sendMail({
-    //     from: `"Pronto me pondre en contacto 😉" <daniel20025febrero29@gmail.com>`,
-    //     to: `"${email}"`,
-    //     subject: "Gracias por contactarme",
-    //     html: `"<h1>Hola ${name} gracias por contactarme, te responderé lo antes posible. 😁</h1>"`,
-    //     //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
-    // });
+    await transporter.sendMail({
+        from: `"Daniel Desarrollador Web" <daniel20025febrero29@gmail.com>`,
+        to: `"${email}"`,
+        subject: "Gracias por contactarme 😉",
+        html: ` <h4> Hola ${firstname}, espero estes bien.</h4>
+                <h4> Gracias por contactarme desde mi portafolio, te responderé lo antes posible. 🫡</h4>`,
+        //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
+    });
 
-    return `Message sent: %s" ${info.messageId}`;
+    return `Message sent: %s" ${my.messageId}`;
 }
 
 
 export const sendEmail = async (req, res) => {
-    const { name, email, message } = req.body;
-    const send = await main(name, email, message)
+    const { firstname, secondname, email, message } = req.body;
+    const send = await main(firstname, secondname, email, message)
     res.send(send)
 }

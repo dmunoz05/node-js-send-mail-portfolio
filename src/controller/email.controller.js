@@ -14,9 +14,9 @@ const transporter = nodemailer.createTransport({
     }
 });;
 
-const main = async (name, email, message) => {
+async function main (name, email, message) {
     // send mail with defined transport object
-    await transporter.sendMail({
+    const my = await transporter.sendMail({
         from: `"Contacto portafolio 👉👀" <${email}>`,
         to: "daniel20025febrero29@gmail.com",
         subject: "Mi Portafolio ✔",
@@ -24,13 +24,13 @@ const main = async (name, email, message) => {
         //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
     });
 
-    await transporter.sendMail({
-        from: `"Pronto me pondre en contacto 😉" <daniel20025febrero29@gmail.com>`,
-        to: `"${email}"`,
-        subject: "Gracias por contactarme",
-        html: `"<h1>Hola ${name} gracias por contactarme, te responderé lo antes posible. 😁</h1>"`,
-        //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
-    });
+    // await transporter.sendMail({
+    //     from: `"Pronto me pondre en contacto 😉" <daniel20025febrero29@gmail.com>`,
+    //     to: `"${email}"`,
+    //     subject: "Gracias por contactarme",
+    //     html: `"<h1>Hola ${name} gracias por contactarme, te responderé lo antes posible. 😁</h1>"`,
+    //     //text: `"Nombre: ${name} \nCorreo: ${email} \nMensaje: ${message}"`,
+    // });
 
     return `Message sent: %s" ${info.messageId}`;
 }
